@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+<script type=“text/javascript” >
+function display(id){
+document.getElementById(id).style.display = '';
+}
+function hide(id){
+document.getElementById(id).style.display = 'none';
+}
+</script>
+-->
+
+
+<!--<p id="text"></p>-->
+
+<h1>iPerf 3 test</h1>
+
+<form action="./testexec.php">
+
+    <label>Choose iperf3 Mode:</label>
+
+    <input type="radio" name="mode" id="client_mode" value="client" checked="checked" onclick='document.getElementById("client_text").style.display=""; document.getElementById("server_text").style.display="none";document.getElementById("repeat_text").style.display="none";document.getElementById("stop_text").style.display="none"' />
+    <label for="client_mode">Client Mode</label>
+
+    <input type="radio" name="mode" id="server_mode" value="server" onclick='document.getElementById("server_text").style.display="";document.getElementById("client_text").style.display="none";document.getElementById("repeat_text").style.display="none";document.getElementById("stop_text").style.display="none"' />
+    <label for="server_mode">Server Mode</label>
+
+    <input type="radio" name="mode" id="repeat_mode" value="repeat" onclick='document.getElementById("client_text").style.display="";document.getElementById("server_text").style.display="none";document.getElementById("repeat_text").style.display="";document.getElementById("stop_text").style.display="none"' />
+    <label for="repeat_mode">Client Repeat Mode</label>
+
+    <input type="radio" name="mode" id="stop_mode" value="stop" onclick='document.getElementById("client_text").style.display="none";document.getElementById("server_text").style.display="none";document.getElementById("repeat_text").style.display="none";document.getElementById("stop_text").style.display=""' />
+    <label for="stop_mode" style="color:red">Stop Iperf3</label>
+
+    <div id ="client_text">
+    <br>
+    <label>Enter iperf3 server ip address:</label>
+    <input type="text" name="ip" id="ip">
+    <br>
+    <label>Enter iperf3 server port number:</label>
+    <input type="number" name="port" id="port" value="5201">
+    <br>
+    <label>Enter additional options if needed (eg. -R):</label>
+    <input type="text" id="options" name="options">
+
+    </div>
+
+    <div id ="repeat_text" style="display:none">
+    <br>
+    <label>Enter interval in seconds:</label>
+    <input type="number" id="seconds" name="seconds" value="30">
+    <br>
+    <label>Client repeat mode will stop when stop mode is run, client mode is run, server mode is run, or device reboot.</label>
+    </div>
+
+    <div id ="server_text" style="display:none">
+    <br>
+    <label>This device will operate in server mode. Server mode will stop when stop mode is run, client mode is run, or device reboot.</label>
+    </div>
+
+    <div id ="stop_text" style="display:none">
+    <br>
+    <label style="color:red">Stop any Iperf3 processes.</label>
+    </div>
+
+    <!--
+    <label>Client Mode:</label>
+
+    <label>Enter iperf3 server ip address:</label>
+    <input type="text" name="ip" id="ip">
+    <br>
+    <label>Enter iperf3 server port number:</label>
+    <input type="number" name="port" id="port" value="5201">
+    <br><br>
+    -->
+    <br><br>
+    <input id="submitbutton" type="submit" value="Submit" onclick='document.getElementById("text").innerHTML = "Please Wait. Running iperf3...";document.getElementById("submitbutton").style.display="none";'>
+</form>
+
+<!--<h3>Result:</h3>-->
+<br>
+<p id="text"></p>
+
+
+
+</html>
