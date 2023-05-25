@@ -10,7 +10,7 @@ Copy and paste the following compose into your project and click save.
 version: '3'
 services:
   iperf3:
-    image: "phate999/iperf"
+    image: "cpcontainer/iperf"
     ports:
      - '8000:80'
      - '5201:5201'
